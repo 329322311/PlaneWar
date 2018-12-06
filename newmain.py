@@ -1,3 +1,5 @@
+# coding="utf-8" #<br>
+# author : "Jayson"<br>
 # zh-cn:导入pygame模块
 # en:import the pygame module
 import pygame

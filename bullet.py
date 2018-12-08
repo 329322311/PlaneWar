@@ -5,8 +5,7 @@
 # zh-cn:导入pygame模块
 # en:import the pygame module
 import pygame
-
-bullet_move_speed = 4
+import setting
 
 class Bullet(object):
 
@@ -26,7 +25,7 @@ class Bullet(object):
 
     def move(self):
         # 设置子弹速度;set bullet speed
-        self.bullet_rect[1] -= bullet_move_speed
+        self.bullet_rect[1] -= setting.bullet_move_speed
 
     # 绘制背景；draw into window
     def blited(self):

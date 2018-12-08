@@ -11,4 +11,6 @@ This game offer some basic functions like 'moving', 'shooting'(press **space** t
 ***
 # Screenshots
 
+        PlaneWar/screenshot.png
+      
 

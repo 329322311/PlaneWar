@@ -71,6 +71,13 @@ class PlaneWar(object):
         for i in self.enemy:
             i.move()
 
+    def hit_enemy(self):
+        # 判断两个矩形是否相交，相交返回True，否则返回False;to determine whether two rectangles intersect, the intersection returns True or False
+        for i in self.hero.bullets:
+            for j in self.enemy:
+                if pygame.Rect.colliderect(i.bullet_rect, j.enemy_rect):
+                    j.enemy_reset()
+
     # 定义绘制方法；define the drawing method
     def blit(self):
         self.map.blited()
@@ -88,13 +95,15 @@ class PlaneWar(object):
     def run(self):
         while True:
 
-            # 1、调用事件方法；run events method
+            # 1.调用事件方法；run events method
             self.events()
-            # 2、各个对象的移动；run a movement method
+            # 2.各个对象的移动；run a movement method
             self.move()
-            # 3、绘制图片对象；run a bullet method
+            # 3.判断是否打中敌机;judge whether you hit the enemys
+            self.hit_enemy()
+            # 4.绘制图片对象；run a bullet method
             self.blit()
-            # 4、更新界面；update display content
+            # 5.更新界面；update display content
             self.display()
 
 if __name__ =="__main__":

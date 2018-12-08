@@ -8,6 +8,7 @@ import pygame,sys
 
 # 创建飞机大战的大类
 # Create class of PlaneWar
+from enemy import Enemy
 from hero import Hero
 from map import Map
 
@@ -28,9 +29,10 @@ class PlaneWar(object):
         # 调用设置窗口;run setting window properties
         self.set_window()
 
-        # 创建地图对象;create Map object
+        # 创建对象;create objects
         self.map = Map(window)
         self.hero = Hero(window)
+        self.enemy = [Enemy(window) for _ in range(4)]
 
     @staticmethod
     def set_window():
@@ -51,16 +53,28 @@ class PlaneWar(object):
             if event.type == pygame.QUIT:
                 print("关闭了窗口")
                 sys.exit()
+            # 判断是否空格;if press space,shoot
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    self.hero.shooting()
 
     # 定义移动方法；define a movement method
     def move(self):
         self.map.move()
         self.hero.move()
 
+        # 每一个子弹都需要调用自己的move方法;each bullet needs to call its own move method
+        for i in self.hero.bullets:
+            i.move()
+
     # 定义绘制方法；define the drawing method
     def blit(self):
         self.map.blited()
         self.hero.blited()
+
+        # 遍历绘制敌机;iterating over to draw the enemys
+        for i in self.enemy:
+            i.blited()
 
     # 定义显示方法；define display method
     def display(self):

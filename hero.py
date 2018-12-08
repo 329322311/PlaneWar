@@ -5,12 +5,9 @@
 # zh-cn:导入pygame模块
 # en:import the pygame module
 import pygame
-
+import setting
 from bullet import Bullet
 
-WIN_WIDTH = 512
-WIN_HEIGHT = 768
-plane_move_speed = 3
 
 class Hero(object):
 
@@ -26,7 +23,7 @@ class Hero(object):
 
         # 设置矩形的位置; set the rectangle's position
         self.hero_rect[1] = 600
-        self.hero_rect[0] = WIN_WIDTH / 2 - self.hero_rect[2] / 2
+        self.hero_rect[0] = setting.WIN_WIDTH / 2 - self.hero_rect[2] / 2
 
         # 携带的子弹;cartridge
         self.bullets = []
@@ -38,22 +35,22 @@ class Hero(object):
         # 设上边界;set top boundary
         if pressed_keys[pygame.K_w] or pressed_keys[pygame.K_UP]:
             if self.hero_rect[1] > -self.hero_rect[3] / 2:
-                self.hero_rect[1] -= plane_move_speed
+                self.hero_rect[1] -= setting.plane_move_speed
 
         # 设下边界;set bottom boundary
         if pressed_keys[pygame.K_s] or pressed_keys[pygame.K_DOWN]:
-            if self.hero_rect[1] < WIN_HEIGHT - self.hero_rect[3] / 2:
-                self.hero_rect[1] += plane_move_speed
+            if self.hero_rect[1] < setting.WIN_HEIGHT - self.hero_rect[3] / 2:
+                self.hero_rect[1] += setting.plane_move_speed
 
         # 设左边界;set left boundary
         if pressed_keys[pygame.K_a] or pressed_keys[pygame.K_LEFT]:
             if self.hero_rect[0] > -self.hero_rect[2] / 2:
-                self.hero_rect[0] -= plane_move_speed
+                self.hero_rect[0] -= setting.plane_move_speed
 
         # 设右边界;set right boundary
         if pressed_keys[pygame.K_d] or pressed_keys[pygame.K_RIGHT]:
-            if self.hero_rect[0] < WIN_WIDTH - self.hero_rect[2] / 2:
-                self.hero_rect[0] += plane_move_speed
+            if self.hero_rect[0] < setting.WIN_WIDTH - self.hero_rect[2] / 2:
+                self.hero_rect[0] += setting.plane_move_speed
 
     # 射击功能;shooting method
     def shooting(self):

@@ -7,7 +7,8 @@ This game offer some basic functions like 'moving', 'shooting'(press **space** t
 ***
 ### In addition, this game is very suitable for beginners to learn, to type code, comments are very clear and easy to understand, if you have anything you do not understand, please feel free to contact me.
 ***
-## run the game: just run ' <main.py> '
-
+## Run the game: just run ' <main.py> '
+***
+# Screenshots
 
 

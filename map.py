@@ -6,9 +6,8 @@
 # en:import the pygame module
 import pygame
 
-WIN_WIDTH = 512
-WIN_HEIGHT = 768
-map_move_speed = 2
+import setting
+
 
 class Map(object):
 
@@ -22,16 +21,16 @@ class Map(object):
 
         # 设置两张图片的y值;set the y values for both images
         self.y = 0
-        self.y2 = -WIN_HEIGHT
+        self.y2 = -setting.WIN_HEIGHT
 
     def move(self):
         # 地图的移动；set map movement
-        self.y += map_move_speed
-        self.y2 += map_move_speed
-        if self.y > WIN_HEIGHT:
-            self.y = -WIN_HEIGHT
-        if self.y2 > WIN_HEIGHT:
-            self.y2 = -WIN_HEIGHT
+        self.y += setting.map_move_speed
+        self.y2 += setting.map_move_speed
+        if self.y > setting.WIN_HEIGHT:
+            self.y = -setting.WIN_HEIGHT
+        if self.y2 > setting.WIN_HEIGHT:
+            self.y2 = -setting.WIN_HEIGHT
 
     # 绘制背景;draw background into window
     def blited(self):

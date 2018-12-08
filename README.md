@@ -12,9 +12,12 @@ This game offer some basic functions like 'moving', 'shooting'(press **space** t
 另外，这个游戏非常适合初学者学习，要输入代码，注释非常清晰易懂，如果您有什么不懂的，请随时联系我。<br>
 ***
 ## Run the game: just run ' <main.py> ' <br>
-运行游戏:只要运行' <main '。py > '<br>
+运行游戏:只要运行' <main.py> '<br>
 ***
 # Screenshots
-https://github.com/329322311/PlaneWar/blob/master/screenshot.png
+![截图1](https://github.com/329322311/PlaneWar/blob/master/screenshot.png)
+![截图2](https://github.com/329322311/PlaneWar/blob/master/screenshots2.png)
+![截图3](https://github.com/329322311/PlaneWar/blob/master/screenshot3.png)
+
       
 

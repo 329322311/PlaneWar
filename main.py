@@ -67,6 +67,10 @@ class PlaneWar(object):
         for i in self.hero.bullets:
             i.move()
 
+        # 移动每一个敌机;move each enemy
+        for i in self.enemy:
+            i.move()
+
     # 定义绘制方法；define the drawing method
     def blit(self):
         self.map.blited()

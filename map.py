@@ -17,10 +17,10 @@ class Map(object):
         self.img = pygame.image.load("res/img_bg_level_1.jpg")
         self.img2 = pygame.image.load("res/img_bg_level_1.jpg")
 
-        # 获取窗口对象；get window object
+        # 获取窗口对象;get window object
         self.window = win
 
-        # 设置两张图片的y值；set the y values for both images
+        # 设置两张图片的y值;set the y values for both images
         self.y = 0
         self.y2 = -WIN_HEIGHT
 
@@ -33,7 +33,8 @@ class Map(object):
         if self.y2 > WIN_HEIGHT:
             self.y2 = -WIN_HEIGHT
 
-    def blited(self):   # 绘制背景；draw background into window
+    # 绘制背景;draw background into window
+    def blited(self):
         self.window.blit(self.img,(0,self.y))
         self.window.blit(self.img2,(0, self.y2))
 

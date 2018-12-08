@@ -6,6 +6,8 @@
 # en:import the pygame module
 import pygame
 
+from bullet import Bullet
+
 WIN_WIDTH = 512
 WIN_HEIGHT = 768
 plane_move_speed = 3
@@ -25,6 +27,9 @@ class Hero(object):
         # 设置矩形的位置; set the rectangle's position
         self.hero_rect[1] = 600
         self.hero_rect[0] = WIN_WIDTH / 2 - self.hero_rect[2] / 2
+
+        # 携带的子弹;cartridge
+        self.bullets = []
 
     def move(self):
         # 获得当前键盘所有按键的状态(按下，没有按下)，返回bool元组;get the status of all keys on the current keyboard (pressed, not pressed) and returns the bool tuple
@@ -50,6 +55,18 @@ class Hero(object):
             if self.hero_rect[0] < WIN_WIDTH - self.hero_rect[2] / 2:
                 self.hero_rect[0] += plane_move_speed
 
+    # 射击功能;shooting method
+    def shooting(self):
+        self.bullets.append(Bullet(self.window,self.hero_rect[0],self.hero_rect[1],self.hero_rect[2]))
+
     # 绘制背景；draw background into window
     def blited(self):
         self.window.blit(self.img,(self.hero_rect[0],self.hero_rect[1]))
+
+        # 子弹的绘制;draw bullets
+        # 子弹超出边界就删除掉对象;the bullets cross the boundary and deletes the object
+        for i in self.bullets:
+            if i.bullet_rect[1] < -i.bullet_rect[3]/2:
+                self.bullets.remove(i)
+            else:
+                i.blited()
